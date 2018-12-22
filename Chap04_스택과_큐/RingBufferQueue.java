@@ -9,6 +9,9 @@ public class RingBufferQueue {
         int num;
 
 
+
+
+        
         public RingBufferQueue(int capacity){
            num=front=rear=0;
            max=capacity;
