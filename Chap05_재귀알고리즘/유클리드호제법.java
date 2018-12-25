@@ -11,6 +11,12 @@ public class 유클리드호제법 {
       return 유클리드호제법(n2,n1%n2);}
 
     }
+
+    /*
+    *   n1 와 n2 로 변을 이루는 직사각형을 만든다
+    *   둘중 작은 수로 된 정사각형으로 나눠낸후 남은 직사각형에 대해
+    *   위의 과정을 반복한다
+    */
     public static void main(String arg[]){
         int n1,n2;
         Scanner scanner = new Scanner(System.in);
