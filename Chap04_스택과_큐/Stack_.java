@@ -23,12 +23,14 @@ public class Stack_ {
 
     }
 
-    public void pop(){
+    public int pop(){
         if(this.isEmpty()){
             System.out.println("스택이 비어있습니다.");
+            return -1;
         }
         else{
             System.out.println(stk[--ptr]);
+            return (stk[ptr]);
         }
     }
 
