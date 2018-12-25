@@ -11,7 +11,7 @@ public class RingBufferQueue {
 
 
 
-        
+
         public RingBufferQueue(int capacity){
            num=front=rear=0;
            max=capacity;
