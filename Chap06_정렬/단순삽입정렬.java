@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class 단순삽입정렬 {
     //선택한 요소를 그보다 더 앞쪽 알맞은 위치에 삽입하여 정렬하는 알고리즘
-    // 셔틀정렬 
+    // 셔틀정렬
 
     static void insertoinSort(int arr[] , int n){
         for(int i=1 ;i <n;i++){
