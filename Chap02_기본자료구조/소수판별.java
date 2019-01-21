@@ -3,7 +3,7 @@ package Do_It_자료구조.Chap02_기본자료구조;
 public class 소수판별 {
 
     public static void main(String arg[]){
-        
+
 
     }
 

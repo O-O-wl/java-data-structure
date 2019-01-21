@@ -9,7 +9,7 @@ public class 하노이의탑 {
         if(no>1) {
             move(no - 1, start, max - start - target, max);
 
-            }
+        }
         System.out.println("원반 [" + no + "] 을 " + start + "기둥에서 " + target + "기둥으로 옮깁니다.");
 
         if(no>1){
