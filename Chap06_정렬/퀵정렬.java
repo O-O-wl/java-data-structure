@@ -116,13 +116,14 @@ public class 퀵정렬 {
              }while(pl<=pr);
 
              // 요소가 1개 이상이면 스택에 집어넣음 -- while문 반복실행됨
+             if(pl< right){
+                 lStack.push(pl);
+                 rStack.push(right);}
              if(pr > left){
                  lStack.push(left);
                  rStack.push(pr);
                  }
-             if(pl< right){
-                 lStack.push(pl);
-                 rStack.push(right);}
+
          }
 
      }
