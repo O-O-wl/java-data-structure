@@ -1,5 +1,7 @@
 package Do_It_자료구조.Chap06_정렬;
 
+import com.sun.org.apache.xml.internal.utils.IntStack;
+
 import java.util.Scanner;
 
 public class 퀵정렬 {
@@ -30,7 +32,7 @@ public class 퀵정렬 {
             System.out.println(" ------------------------------------");
         }
 
-        quickSort(arr,0,arr.length-1);
+        quickSort2(arr,0,arr.length-1);
 
         for(int i = 0 ; i < arr.length;i++){
             System.out.println("배열["+i+"] = "+arr[i]);
@@ -49,13 +51,23 @@ public class 퀵정렬 {
         int pr  = right;
         int pivot = arr[(pl+pr)/2];
 
+
+        System.out.printf("arr[%d]~arr[%d]: {",left,right);
+
+        for (int i = left ; i < right ; i++){
+            System.out.printf("%d ,",arr[i]);
+        }
+        System.out.println(arr[right]+"}");
+      //  System.out.println();
         do{
             // 오른쪽 스캔
-            System.out.println("피벗:"+pivot);
-            while(arr[pl] < pivot){
-                System.out.println("왼쪽마커:"+pl);pl++;}
+           // System.out.println("피벗:"+pivot);
+            while(arr[pl] < pivot){pl++;}
+            //    System.out.println("왼쪽마커:"+pl);pl++;}
             //왼쪽 스캔
-            while (arr[pr] > pivot){System.out.println("오른쪽마커:"+pr);pr--;}
+            while (arr[pr] > pivot){
+                //System.out.println("오른쪽마커:"+pr);
+            pr--;}
             // 두 마커 스캔 멈췃을시 교차하지 않았으면 두 요소 교환
              if(pl<= pr){swap(arr,pl++,pr--);}
 
@@ -67,6 +79,51 @@ public class 퀵정렬 {
         if (left < pr)  quickSort(arr,left,pr);
         if (right > pl) quickSort(arr,pl,right);
 
+
+     }
+
+
+
+     // 비 재귀 퀵 정렬
+     public static void quickSort2(int arr[],int left, int right){
+
+         // 그룹크기에 해당하는 스택생성
+         IntStack lStack = new IntStack(right - left + 1);
+         IntStack rStack = new IntStack(right - left + 1);
+
+         //각각의 시작인덱스 push
+         lStack.push(left);
+         rStack.push(right);
+
+         while (lStack.empty() != true){
+             int pl = left = lStack.pop();
+             int pr = right = rStack.pop();
+
+             int pivot = arr[(left+right)/2];
+
+             do{
+                 // 오른쪽 스캔
+                 // System.out.println("피벗:"+pivot);
+                 while(arr[pl] < pivot){pl++;}
+                 //    System.out.println("왼쪽마커:"+pl);pl++;}
+                 //왼쪽 스캔
+                 while (arr[pr] > pivot){
+                     //System.out.println("오른쪽마커:"+pr);
+                     pr--;}
+                 // 두 마커 스캔 멈췃을시 교차하지 않았으면 두 요소 교환
+                 if(pl<= pr){swap(arr,pl++,pr--);}
+
+             }while(pl<=pr);
+
+             // 요소가 1개 이상이면 스택에 집어넣음 -- while문 반복실행됨
+             if(pr > left){
+                 lStack.push(left);
+                 rStack.push(pr);
+                 }
+             if(pl< right){
+                 lStack.push(pl);
+                 rStack.push(right);}
+         }
 
      }
 
